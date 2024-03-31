@@ -1,0 +1,93 @@
+
+<app-login></app-login>
+<app-header [randomItem] = "randomData"></app-header>
+<button (click)="randomFun()">Update child component</button>
+
+<br>
+
+<ul *ngFor="let data of userItems">
+  <app-user-details [temp] = 'data'></app-user-details>
+</ul>
+
+
+
+<button (click)="getName('shubham')">Click me</button>
+
+<button (click)="counter(0)">Increment</button>
+
+<br/><br/>
+<input type="text" name="text" #name (keyup)="getValue(name.value)">
+
+<h1 (mouseover)="getMouseOver()">Mouse over function test</h1>
+<br>
+<h2 (mouseleave)="getMouseOver1()">Mouse leaver test</h2>
+
+<br>
+<hr>
+
+<input type="text" placeholder="enter name" name="name" #sname (keyup)="getValueName(sname.value)">
+
+<!-- <input type="text" #sname placeholder="enter name" name="name">
+<button (click)="getValueName(sname.value)">Get box value :</button> -->
+<p>{{displayValue}}</p>
+
+
+ <!-- counter function  -->
+
+
+<h1>counter function</h1>
+
+<button (click)="counterMethod('add')">Add</button>
+<button (click)="counterMethod('sub')">Substract</button>
+
+<p>{{count}}</p>
+
+
+<!-- property binding vs interpolation -->
+
+<!-- interpolation -->
+<input type="text" name="name" value={{cogni}} disabled ={{disable}}>  
+
+<!-- property binding -->
+<input type="text" [value]=cogni1 [disabled] = disable >
+
+<!-- if-else ng -->
+<h1 *ngIf= "show else elseBlock">
+    Inside if
+</h1>
+
+<ng-template #elseBlock>
+  <h1>inside else part</h1>
+</ng-template>
+
+
+<!-- for loop -->
+<h2 *ngFor = "let a of student">{{a}}</h2>
+
+<!-- for loop at array of object -->
+<h2 *ngFor="let detail of userDetails">{{detail.name}} -- {{detail.age}} -- {{detail.email}} -- {{detail.address}}</h2>
+
+<!-- forms -->
+<h2> Forms </h2>
+<form action="" #formdata="ngForm" (ngSubmit)="getFormData(formdata.value)">
+  <input type="text"  ngModel  placeholder="First Name" name="firstname">
+  <br/>
+  <input type="text" ngModel name="lastname" id="" placeholder="Last Name">
+  <br/>
+  <input type="email" ngModel name="email" id="">
+  <br>
+  <button >Register</button>
+</form>
+
+<!-- toggle elements -->
+
+<h1>toggle example</h1>
+
+<h2 *ngIf="tog"> hello </h2>
+<button (click)="toggleFun()">click to toogle</button>
+
+<!-- bootstrap check  -->
+<ngb-alert [dismissible]="false">
+	<strong>Warning!</strong> Better check yourself, you're not looking too good.
+</ngb-alert>
+
